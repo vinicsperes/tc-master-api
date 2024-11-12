@@ -1,8 +1,10 @@
 from flask import Flask, jsonify
 from nba_api.stats.static import players, teams
 from nba_api.stats.endpoints import shotchartdetail
+from flask_cors import CORS  # Importando CORS
 
 app = Flask(__name__)
+CORS(app)  # Habilitando CORS para todas as rotas
 
 def get_shot_chart(player_name, season_id, season_progress):
     # Obter o ID do jogador
